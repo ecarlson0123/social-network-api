@@ -50,6 +50,10 @@ const ThoughtSchema = new Schema(
             type: String,
             required: true
         },
+        userId:{
+            type: String,
+            required: true
+        },
         reactions: [ReactionSchema]
     },
     {
@@ -63,7 +67,7 @@ const ThoughtSchema = new Schema(
     
     
 // get total count of reactions on retrieval
-PizzaSchema.virtual('reactionCount').get(function() {
+ThoughtSchema.virtual('reactionCount').get(function() {
     return this.reactions.length;
 });
     
